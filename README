@@ -1,0 +1,46 @@
+1 软件需求
+
+WINDOWS:
+Java 1.6+ 32bit
+
+LINUX:
+Java 1.6+ 64bit
+
+
+2 环境变量
+WINDOWS:
+
+LINUX:
+1 export MALLOC_CHECK_=0
+
+3 如何运行EXAMPLES
+1 需要首先有TAP仿真账户和服务器信息
+
+2 修改 examples/config.properties 修改属性：
+tap.authCode=
+tap.quoteHost=
+tap.quotePort=
+tap.tradeHost=
+tap.tradePort=
+tap.userId=
+tap.password=
+
+
+
+3 设置好环境变量，编译并运行样例程序，确保examples目录在classpath中
+
+java -cp jtap/examples;jtrader-common.jar;jtap-****.jar;jtap-examples.jar MarketDataSaver
+java -cp jtap/examples;jtrader-common.jar;jtap-****.jar;jtap-examples.jar TraderInfo
+
+
+4 如何启用 Turbo Mode
+TurboMode是一种快速byte<->String转换模式，需要修改String类字节码，请慎用。
+4.1 运行jtrader-tool.jar 为jre创建jtrader-turbo-<jre version>.jar文件
+4.2 在java命令行中，增加一项: -Xbootclasspath/p:jtrader-turbo-<jre version>.jar
+4.3 如何在运行时判断是否已启用: BufferUtil.isTurboModeEnabled() 返回true表示已正确启用
+*** 注意：生成turbo jar文件的jre必须和运行时jre完全一致!
+
+5 如有问题，请联系: 
+邮件: zhugf000@gmail.com
+QQ: 104925442
+Java 程序交易群: 101441855

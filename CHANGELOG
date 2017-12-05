@@ -1,0 +1,17 @@
+2017-07-01
+* 支持TAP API V9.3.1.1
+
+2016-10-08
+* 支持TAP API V9.3.0.7
+
+2016-03-21
+* 支持TAP API V9.3.0.0
+
+2015-08-28
+* 支持TAP API V9.0.2.2_20150703
+
+2015-04-26
+* 自动加载JNI动态库，无需设置 java.library.path和PATH/LD_LIBRRAY_PATH环境变量
+
+2014-12-31
+* 初始版本，支持 TAP API TapQuoteAPI V9.0.0.8 20141016/TapTradeAPI V9.0.0.6 20141016
