@@ -34,8 +34,19 @@ tap.password=
 java -cp jtap/examples;jtrader-common.jar;jtap-****.jar;jtap-examples.jar MarketDataSaver
 java -cp jtap/examples;jtrader-common.jar;jtap-****.jar;jtap-examples.jar TraderInfo
 
+
 linux:
-java -cp jtap/examples:./jars/jtap*.jar MarketDataSaver
+cd jtap_trial-linux_x64-quote-9.3.1.1; 
+# 编译
+rm -rf class/*jar &&  javac -cp examples/*:jars/jtap-linux_x64-quote-9.3.1.1.jar:jars/jtap-linux_x64-quote-9.3.1.1-docs.jar:jars/wilddog-sync-jvm-2.0.2.jar:jars/wilddog-sync-jvm-2.0.2-sources.jar:jars/jtrader-common.jar -d class examples/MarketDataSaver.java
+
+# 打包
+(cd class ; jar -cvfm jtap-examples.jar MANIFEST.MF )
+
+# 运行
+java -cp examples/*:jars/jtap-linux_x64-quote-9.3.1.1.jar:jars/jtap-linux_x64-quote-9.3.1.1-docs.jar:jars/wilddog-sync-jvm-2.0.2.jar:jars/wilddog-sync-jvm-2.0.2-sources.jar:jars/jtrader-common.jar -jar class/jtap-examples.jar
+
+
 
 4 如何启用 Turbo Mode
 TurboMode是一种快速byte<->String转换模式，需要修改String类字节码，请慎用。
